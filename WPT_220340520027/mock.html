@@ -1,0 +1,73 @@
+<html>
+<body>
+<br /><input type="number" id="id" name="id" placeholder="boxid" /><span>
+	bookid
+</span>
+
+<br/>
+<input type="text" id="name" name="name" placeholder="book name"/><br/>
+<input 
+type="number"
+id="price"
+name="price"
+placeholder="book price"
+/> <br>
+<button type="submit" id="btn" name="btn"> SUBMIT</button>
+
+</body>
+
+<script src="jquery-3.5.1.min.js"></script>
+<script>//our scrip will come here 
+
+
+
+$(document).ready(function()
+{
+console.log('global');
+$("#id").blur(() => {
+	console.log('on bkur');
+	$('#btn').click(function(){
+		console.log('on click');
+	
+		let data = {
+			id : parseInt($('#id').val()),
+			name: $('#name').val();
+			price : parseFloat($('#price').val()),
+		};
+		console.log(typeof data.id);
+		console.log(typeof data.name);
+		console.log(typeof data.price);
+		console.log( data);
+
+		let ajax = {
+			type : 'get',
+			datatype : 'text',
+			url : http
+			data : data,
+			sucess : function (gfs){
+				console.log('welcome in sucess',+gfs.status);
+			},
+			error: function (e){
+				console.log('failed',+JSON.stringify(e)+e);
+			},
+		};
+		$.ajax(ajaxdata);
+
+
+
+	});
+	
+});
+
+
+</script>
+
+<body>
+	<input type="text" name="textbox" id="txt1" placeholder="bookid"/>
+	<span id="msg"  > what happened book add or not  </span><br>
+	<input type="text" name="textbox1" id="txt2" placeholder="bookname"/>
+	<input type="text" name="textbox2" id="txt3" placeholder="price"/>
+	<button id="btn">Add a book</button>
+</body>
+
+</html>
